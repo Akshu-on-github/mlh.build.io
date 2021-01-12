@@ -28,8 +28,7 @@ def checkPantry(choice):
         print("You're all set!")
     else:
         print("You'll need...")
-        for k, v in required:
-            print(v, "units of", k)
+        print(required)
 
 def addRecipie(name):
     print("Let's take a look at what you're recipie will need...")
