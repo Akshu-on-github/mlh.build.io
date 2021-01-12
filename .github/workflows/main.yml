@@ -1,0 +1,28 @@
+name: Greetings
+
+on:
+  issues:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  greet-first:
+    runs-on: ubuntu-latest
+    name: Greeting-newbies
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: '<h2>Great Job! :hooray: </h2>This is your first issue on this repo, great job!'
+        pr-message: '<h2>Awesome! :hooray: <h2>You made your first PR on this repo, keep up the good work! Don''t forget to link it to an issue!'
+        
+  greet-all:
+    runs-on: ubuntu-latest
+    name: Gen-greeting
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: '<h2>Hey there! :laugh: </h2>Thanks for raising an issue, keep contributing!'
+        pr-message: '<h2>Awesome! :laugh: <h2>Thanks for the PR, keep up the good work! Oh, and don''t forget to link it to the relevant issue!'
